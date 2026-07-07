@@ -84,6 +84,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "EcoSmart — إدارة الطلبات" },
+      { name: "twitter:description", content: "منصة EcoSmart لإدارة طلبات المتاجر الإلكترونية بكفاءة" },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/7e61ad15-2aec-44af-8f70-c7a24b93d25f/id-preview-fcb31ff3--0ba57d07-2ddc-4e2a-8faf-8793df11824c.lovable.app-1783386671719.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/7e61ad15-2aec-44af-8f70-c7a24b93d25f/id-preview-fcb31ff3--0ba57d07-2ddc-4e2a-8faf-8793df11824c.lovable.app-1783386671719.png" },
     ],
     links: [
       {
