@@ -11,6 +11,9 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/app-sidebar";
+import { Bell, Search } from "lucide-react";
 
 function NotFoundComponent() {
   return (
@@ -122,8 +125,34 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <SidebarProvider>
+        <div className="min-h-screen flex w-full bg-[#f6f7fb]" dir="rtl">
+          <AppSidebar />
+          <div className="flex-1 flex flex-col min-w-0">
+            <header className="h-14 flex items-center gap-3 border-b bg-white px-4 sticky top-0 z-30">
+              <SidebarTrigger />
+              <div className="relative flex-1 max-w-md">
+                <Search className="pointer-events-none absolute end-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+                <input
+                  type="text"
+                  placeholder="بحث سريع..."
+                  className="w-full rounded-lg bg-slate-50 py-2 pe-10 ps-3 text-sm outline-none ring-1 ring-slate-200 focus:ring-blue-300"
+                />
+              </div>
+              <button className="relative flex h-9 w-9 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100">
+                <Bell className="h-4 w-4" />
+                <span className="absolute top-1.5 end-1.5 h-2 w-2 rounded-full bg-red-500" />
+              </button>
+              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-blue-500 text-white text-sm font-semibold">
+                ت
+              </div>
+            </header>
+            <main className="flex-1 min-w-0">
+              <Outlet />
+            </main>
+          </div>
+        </div>
+      </SidebarProvider>
     </QueryClientProvider>
   );
 }
